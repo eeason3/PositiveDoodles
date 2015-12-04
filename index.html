@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Search Positive Doodles</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link href='other/animate.css' rel='stylesheet' type='text/css'>
+
+<!--[if IE]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style>
+  body {
+    background-color: #682CAB;
+    background-image: url(images/purple2.jpg);
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  .main {
+    background-color: #fff;
+    padding: 20px;
+    margin: 100px auto;
+    width: 800px;
+    min-height: 40vh;
+    border-radius: 20px;
+  }
+  h1 {
+    padding: 30px 0px;
+    letter-spacing: -.02em;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    word-spacing: .3em;
+  }
+  a:link, a:visited {
+    color: #682CAB;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #AE6CE7;
+    text-decoration: none;
+  }
+  .searchWrapper {
+    text-align: center;
+    font-size: 26px;
+    padding-bottom: 30px;
+  }
+  .search {
+    padding: 6px;
+    font-size: inherit;
+  }
+  .submit {
+    background-color: #682CAB;
+    padding: 5px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: inherit;
+  }
+  .submit:hover {
+    background-color: #AE6CE7;
+  }
+  .credits {
+    font-size: 12px;
+    text-align: right;
+  }
+</style>
+<script>
+
+
+  function placehold() {
+    var searchTerms = ["Snail", "Jellyfish", "Whale", "School", "Loss", "Happy", "Cute", "Ghost", "Bee", "Narwhal", "Snake", "Otter", "Pun", "Reassuring", "Food"];
+    var chosenTerm = searchTerms[Math.floor(Math.random() * searchTerms.length)];
+    $(".search").attr("placeholder", chosenTerm);
+  }
+
+  function enter(event) {
+    if (event.which == 13) {
+      submit();
+    }
+  }
+
+  function submit() {
+    var val = $(".search").val();
+    if (val == "") {
+      val = "doodle";
+    }
+
+    var url = "http://positivedoodles.tumblr.com/tagged/" + val;
+    window.open(url,'_blank');
+    //$(".direct").attr("href", link + $(".search").val());
+  }
+
+  setTimeout(placehold, 1);
+</script>
+</head>
+<body>
+  <div class="main">
+    <h1>SEARCH POSITIVE DOODLES</h1>
+
+    <p class="searchWrapper">
+      <input class="search" type="text" autocomplete="on" placeholder="Jellyfish" onkeypress="enter(event)"/>
+      <input type="button" onclick="submit()" value="Submit!" class="submit"/>
+    </p>
+
+    <p class="credits">
+      Credit to <a href="http://positivedoodles.tumblr.com/">Postive Doodles</a>.<br/>
+      Made by <a href="https://github.com/eeason3">eeason3</a>.
+    </p>
+  </div>
+</body>
+</html>
